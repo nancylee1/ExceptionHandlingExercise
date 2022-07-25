@@ -18,31 +18,53 @@ namespace ExceptionHandlingExercise
             // Below we will set this up 
             // ------------------------------------------------------------------------------
 
-
+            char[] arr = new char[] {'1', '2', '3', '4', '5', '6', 'a', 'b', 'c'};
+            List<int> numbers = new List<int>();
+            string str = "";
 
             //TODO START HERE:
-            
+
             // Make a foreach loop to iterate through your character array
-            
+            foreach (var character in arr)
+            {
                 // Now create a try catch
-                
-                
-                    // Inside your try block
-                        // set your string variable to each array element in your char[] to .ToString()
-                        // Now, using int.Parse, parse your string variable and store in an int variable
-                        // Then add each int to your list
-                
+
+
+                // Inside your try block
+                // set your string variable to each array element in your char[] to .ToString()
+                // Now, using int.Parse, parse your string variable and store in an int variable
+                // Then add each int to your list
+
+             try
+                {
+                    str = character.ToString(); 
+                    int number = int.Parse(str);
+                    numbers.Add(number);
+                }
                 // catch your Exception:
                 // in the scope of your catch you can use the following, 
-                
-                    //Console.WriteLine($"Unable to Parse '{character}'"); //character will be the name of each item in your collection
-                
-            
 
+                //Console.WriteLine($"Unable to Parse '{character}'"); //character will be the name of each item in your collection
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Unable to parse {character}. error: {e.Message}"); //assigned variable e to Exception to receive the {e.Message} for description of error
+                }
+            }
             //foreach (var num in numbers)
             //{
             //    Console.WriteLine(num);
             //}
+            foreach (var num in numbers)
+            {
+                Console.WriteLine(num);
+            }
+
+                
+                
+                
+            
+
+
         }
     }
 }
